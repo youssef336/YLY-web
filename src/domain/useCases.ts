@@ -10,13 +10,25 @@ export class TeamUseCases {
   getMembers = () => this.repository.getAll()
 
   async addMember(name: string) {
-    const member: Member = { id: crypto.randomUUID(), name, role: 'Team Member', avatar: name.slice(0, 2).toUpperCase(), joinedAt: new Date().toISOString(), activities: [] }
+    const member: Member = { id: crypto.randomUUID(), name, role: 'Team Member', avatar: name.slice(0, 2).toUpperCase(), joinedAt: new Date().toISOString(), isActive: true, activities: [] }
     await this.repository.save(member)
     return member
   }
 
   async addActivity(member: Member, activity: Omit<Activity, 'id' | 'date'>) {
     const updated = { ...member, activities: [{ ...activity, id: crypto.randomUUID(), date: new Date().toISOString() }, ...member.activities] }
+    await this.repository.save(updated)
+    return updated
+  }
+
+  async deleteActivity(member: Member, activityId: string) {
+    const updated = { ...member, activities: member.activities.filter(activity => activity.id !== activityId) }
+    await this.repository.save(updated)
+    return updated
+  }
+
+  async deactivateMember(member: Member) {
+    const updated = { ...member, isActive: false }
     await this.repository.save(updated)
     return updated
   }
