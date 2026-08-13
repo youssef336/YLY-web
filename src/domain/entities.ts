@@ -1,5 +1,5 @@
 export type ActivityKind = 'report' | 'excuse' | 'points'
-export type ActionStatus = 'Completed' | 'Excuse' | 'Void' | 'Bonus' | 'Penalty'
+export type ActionStatus = 'Completed' | 'Excuse' | 'Else'
 
 export interface Activity {
   id: string

@@ -15,8 +15,14 @@ export class TeamUseCases {
     return member
   }
 
-  async addActivity(member: Member, activity: Omit<Activity, 'id' | 'date'>) {
-    const updated = { ...member, activities: [{ ...activity, id: crypto.randomUUID(), date: new Date().toISOString() }, ...member.activities] }
+  async addActivity(member: Member, activity: Omit<Activity, 'id'>) {
+    const updated = { ...member, activities: [{ ...activity, id: crypto.randomUUID() }, ...member.activities] }
+    await this.repository.save(updated)
+    return updated
+  }
+
+  async updateActivity(member: Member, activity: Activity) {
+    const updated = { ...member, activities: member.activities.map(current => current.id === activity.id ? activity : current) }
     await this.repository.save(updated)
     return updated
   }
