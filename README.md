@@ -5,14 +5,11 @@
 </p>
 
 <p align="center">
-  <a href="https://yly-web.vercel.app"><img src="https://img.shields.io/badge/Live%20demo-yly--web.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live demo" /></a>
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
   <img src="https://img.shields.io/badge/Excel%20export-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white" alt="Excel export" />
 </p>
-
-<p align="center"><b><a href="https://yly-web.vercel.app">▶ Open the live demo</a></b></p>
 
 ## About
 
